@@ -25,9 +25,14 @@ jugar = True
 
 
 class CambiarColor:
-    """La clase CambiarColor controla que los botones cambien de color al pasar el ratón por encima de ellos"""
-
     def FuncionCambiarColor(self, button, colorRatonDentro, colorRatonFuera):
+        """
+        Toma un botón y dos colores, y vincula el botón para cambiar de color cuando el mouse ingresa y deja el botón
+
+        :param button: El botón al que desea cambiar el color
+        :param colorRatonDentro: El color del botón cuando el mouse está sobre él
+        :param colorRatonFuera: El color del botón cuando el mouse no está sobre él
+        """
         button.bind(
             "<Enter>", func=lambda e: button.config(background=colorRatonDentro, cursor="hand2")
         )
@@ -39,6 +44,11 @@ class Salir:
     """La clase Salir controla el cierre del juego, muestra un diálogo de confirmación de que si el usuario está seguro de cerrar el juego, y si da a que si está seguro entonces destruye la ventana actual"""
 
     def FuncionSalir(self, ventanaACerrar):
+        """
+        Le pregunta al usuario si quiere salir del juego, y si dice que sí, cierra la ventana
+
+        :param ventanaACerrar: La ventana para cerrar
+        """
         self.Tk = ventanaACerrar
 
         self.cerrar = messagebox.askquestion(
@@ -63,6 +73,9 @@ class Salir:
 
 class Main:
     def FuncionMain(self):
+        """
+        Crea una ventana y luego crea una etiqueta, tres botones y un color de fondo.
+        """
         # Crear instancias de las clases necesarias para que el programa funcione
         self.cambiarColor = CambiarColor()
         self.salir = Salir()
@@ -145,9 +158,17 @@ class Main:
 
 class Jugar:
     def __init__(self):
+        """
+        La función inicializa el módulo pygame.
+        """
         pyg.init()
 
     def FuncionJugar(self):
+        """
+        "Cree una instancia de las clases que no requieren que se inicialice la pantalla: Principal, Cambiar color, Salir.
+        Cree la ventana + configúrela + Corrija el tamaño + Cambie el icono".
+        </código>
+        """
         # Crear instancia de las clases que no requieren que se inicie el display: Main, CambiarColor, Salir
         self.volverAlMenu = Main()
         self.cambiarColor = CambiarColor()
@@ -174,6 +195,9 @@ class Jugar:
 
 class Creditos:
     def FuncionCreditos(self):
+        """
+        Crea una ventana, le pone una etiqueta y dos botones, y luego ejecuta la ventana
+        """
         # Crear instancia de la clase Main para poder volver al menu y Salir
         self.volverAlMenu = Main()
         self.salir = Salir()
