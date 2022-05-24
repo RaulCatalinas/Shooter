@@ -41,8 +41,6 @@ class CambiarColor:
 
 
 class Salir:
-    """La clase Salir controla el cierre del juego, muestra un diálogo de confirmación de que si el usuario está seguro de cerrar el juego, y si da a que si está seguro entonces destruye la ventana actual"""
-
     def FuncionSalir(self, ventanaACerrar):
         """
         Le pregunta al usuario si quiere salir del juego, y si dice que sí, cierra la ventana
