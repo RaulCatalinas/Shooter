@@ -57,6 +57,11 @@ class Salir:
             self.Tk.destroy()
 
     def FuncionSalirPygame(self, ventanaACerrar):
+        """
+        Le pregunta al usuario si quiere salir del juego, y si dice que sí, sale del juego.
+
+        :param ventanaACerrar: La ventana para cerrar
+        """
         self.Tk = ventanaACerrar
 
         self.cerrar = messagebox.askquestion(
